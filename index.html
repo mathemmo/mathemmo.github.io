@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MatheMMO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside>
+    <div id="sidebar">
+      <h1>MatheMMO</h1>
+      <ul>
+        <li><a class="subpage-button" data-target="menu">Menu</a>
+        <li><a class="subpage-button" data-target="inventory">Inventory</a>
+        <li><a class="subpage-button" data-target="map">Map</a>
+        <li><a class="subpage-button" data-target="info">Info</a>
+        <li><a class="subpage-button" data-target="quests">Quests</a>
+        <li><a class="subpage-button" data-target="settings">Settings</a>
+        <li><a class="subpage-button" data-target="loadsave">Load/Save</a>
+      </ul>
+    </div>
+  </aside>
+  <div id="content">
+    <div id="menu" class="subpage">
+      <h2>Menu</h2>
+      <p>Welcome to MatheMMO, a unique RPG where your progress in the game is tied to your progress in math!</p>
+      <p>Here, you'll embark on exciting quests and face challenging enemies, all while improving your math skills. The better you get at math, the stronger your character becomes. It's a fun, engaging way to learn and practice math.</p>
+      <p>Are you ready to start your adventure? Let's dive in!</p>
+    </div>
+    <div id="inventory" class="subpage" style="display:none">
+      <h2>Inventory</h2>
+      <p>Welcome to your inventory. Here you can see the items you've collected on your journey.</p>
+      <ul id="inventory-list">
+        <li class="inventory-item" title="This is Item 1">Item 1</li>
+        <li class="inventory-item" title="This is Item 2">Item 2</li>
+        <li class="inventory-item" title="This is Item 3">Item 3</li>
+        <!-- Items will be dynamically added here -->
+      </ul>
+    </div>
+    <div id="map" class="subpage" style="display:none">
+      <h2>Map</h2>
+      <p>Welcome to the map. Here you can see the links to unlocked locations and the next location. You need to complete the previous location to unlock the next one.</p>
+      <ul id="location-list">
+        <li id="arithmetics-location" class="unlocked">
+          <a class="subpage-button" data-target="location-arithmetics">Arithmetics</a>
+        </li>
+        <li id="geometry-location" class="locked">
+          <span class="subpage-button" data-target="location-geometry">Geometry (Requires Arithmetics completion)</span>
+        </li>
+        <li id="algebra-location" class="locked">
+          <span class="subpage-button" data-target="location-algebra">Algebra (Requires Arithmetics completion)</span>
+        </li>
+        <li id="functions-location" class="locked">
+          <span class="subpage-button" data-target="location-functions">Functions (Requires Geometry and Algebra completion)</span>
+        </li>
+        <li id="calculus-location" class="locked">
+          <span class="subpage-button" data-target="location-calculus">Calculus (Requires Functions completion)</span>
+        </li>
+      </ul>
+      </ul>
+    </div>
+    <div id="info" class="subpage" style="display:none">
+      <h2>Character Info</h2>
+      <p>Welcome to your character info. Here you can see your stats, skill bars and skill levels.</p>
+      <table id="stats-table">
+        <tr>
+          <th>Stats</th>
+          <th>Value</th>
+        </tr>
+        <tr id="health-row">
+          <td>Health
+          <td id="health-value">100
+        </tr>
+        <tr id="mana-row">
+          <td>Mana
+          <td id="mana-value">100
+        </tr>
+        <tr id="strength-row">
+          <td>Strength
+          <td id="strength-value">10
+        </tr>
+      </table>
+      <h3>Skill Levels</h3>
+      <div id="skill-bar">
+        <div id="skill-arithmetics" class="skill">
+          <div class="skill-level" style="width: 0%;">Arithmetics</div>
+        </div>
+        <div id="skill-algebra" class="skill">
+          <div class="skill-level" style="width: 0%;">Algebra</div>
+        </div>
+        <div id="skill-geometry" class="skill">
+          <div class="skill-level" style="width: 0%;">Geometry</div>
+        </div>
+        <div id="skill-functions" class="skill">
+          <div class="skill-level" style="width: 0%;">Functions</div>
+        </div>
+        <div id="skill-calculus" class="skill">
+          <div class="skill-level" style="width: 0%;">Calculus</div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div id="quests" class="subpage" style="display:none">
+      <h2>Quests</h2>
+      <p>Welcome to the quests page. Here you can embark on exciting math quests to improve your skills and level up your character.</p>
+      <h3>Main Quests</h3>
+      <ul>
+        <li>Quest 1: Solve the Math Puzzle</li>
+        <li>Quest 2: Conquer the Algebra Tower</li>
+      </ul>
+      <h3>Side Quests</h3>
+      <ul>
+        <li>Quest 3: Navigate the Geometry Labyrinth</li>
+      </ul>
+      <h3>Completed Quests</h3>
+      <ul>
+        <!-- Completed quests will go here -->
+      </ul>
+    </div>
+    </div>
+    <div id="settings" class="subpage" style="display:none">
+      <h2>Settings</h2>
+      <p>Content for Settings.</p>
+    </div>
+    <div id="loadsave" class="subpage" style="display:none">
+      <h2>Load/Save</h2>
+      <p>Content for Load/Save.</p>
+    </div>
+    <div id="location-arithmetics" class="subpage" style="display:none">
+      <h2>Arithmetics</h2>
+      <p>Welcome to Arithmetics. Here you can learn and practice arithmetic skills.</p>
+      <div class="npcs">
+        <h3>NPCs</h3>
+        <ul>
+          <li id="npc1" onclick="interactWithNpc('npc1')">Integer Instructor</li>
+          <li id="npc2" onclick="interactWithNpc('npc2')">Floating-Point Professor</li>
+        </ul>
+      </div>
+      <div class="mobs">
+        <h3>Mobs</h3>
+          <li id="mob1" onclick="interactWithMob('mob1')">Summing Serpent</li>
+          <li id="mob2" onclick="interactWithMob('mob2')">Subtraction Salamander</li>
+          <li id="mob3" onclick="interactWithMob('mob3')">Multiplication Mantis</li>
+          <li id="mob4" onclick="interactWithMob('mob4')">Division Dove</li>
+        </ul>
+      </div>
+      <div class="resources">
+        <h3>Resources</h3>
+        <ul>
+          <li id="resource1" onclick="interactWithResource('resource1')">Number Wood</li>
+          <li id="resource2" onclick="interactWithResource('resource2')">Fraction Stone</li>
+        </ul>
+      </div>
+    </div>
+    <div id="geometry" class="subpage" style="display:none">
+      <h2>Geometry</h2>
+      <p>Welcome to Geometry. Here you can learn and practice geometry skills.</p>
+    </div>
+    <div id="algebra" class="subpage" style="display:none">
+      <h2>Algebra</h2>
+      <p>Welcome to Algebra. Here you can learn and practice algebra skills.</p>
+    </div>
+  <script src="script.js"></script>
+</body>
+</html>
