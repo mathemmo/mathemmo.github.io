@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Sidebar Section -->
   <aside>
     <div id="sidebar">
       <h1>MatheMMO</h1>
@@ -20,23 +21,25 @@
       </ul>
     </div>
   </aside>
+
+  <!-- Content Section -->
   <div id="content">
+    <!-- Menu Subpage -->
     <div id="menu" class="subpage">
       <h2>Menu</h2>
       <p>Welcome to MatheMMO, a unique RPG where your progress in the game is tied to your progress in math!</p>
       <p>Here, you'll embark on exciting quests and face challenging enemies, all while improving your math skills. The better you get at math, the stronger your character becomes. It's a fun, engaging way to learn and practice math.</p>
       <p>Are you ready to start your adventure? Let's dive in!</p>
     </div>
+
+    <!-- Inventory Subpage -->
     <div id="inventory" class="subpage" style="display:none">
       <h2>Inventory</h2>
       <p>Welcome to your inventory. Here you can see the items you've collected on your journey.</p>
-      <ul id="inventory-list">
-        <li class="inventory-item" title="This is Item 1">Item 1</li>
-        <li class="inventory-item" title="This is Item 2">Item 2</li>
-        <li class="inventory-item" title="This is Item 3">Item 3</li>
-        <!-- Items will be dynamically added here -->
-      </ul>
+      <ul id="inventory-list"></ul>
     </div>
+
+    <!-- Map Subpage -->
     <div id="map" class="subpage" style="display:none">
       <h2>Map</h2>
       <p>Welcome to the map. Here you can see the links to unlocked locations and the next location. You need to complete the previous location to unlock the next one.</p>
@@ -57,8 +60,9 @@
           <span class="subpage-button" data-target="location-calculus">Calculus (Requires Functions completion)</span>
         </li>
       </ul>
-      </ul>
     </div>
+
+    <!-- Character Info Subpage -->
     <div id="info" class="subpage" style="display:none">
       <h2>Character Info</h2>
       <p>Welcome to your character info. Here you can see your stats, skill bars and skill levels.</p>
@@ -98,8 +102,9 @@
           <div class="skill-level" style="width: 0%;">Calculus</div>
         </div>
       </div>
-      </div>
     </div>
+
+    <!-- Quests Subpage -->
     <div id="quests" class="subpage" style="display:none">
       <h2>Quests</h2>
       <p>Welcome to the quests page. Here you can embark on exciting math quests to improve your skills and level up your character.</p>
@@ -117,15 +122,41 @@
         <!-- Completed quests will go here -->
       </ul>
     </div>
-    </div>
+
+    <!-- Settings Subpage -->
     <div id="settings" class="subpage" style="display:none">
       <h2>Settings</h2>
       <p>Content for Settings.</p>
     </div>
+
+    <!-- Load/Save Subpage -->
     <div id="loadsave" class="subpage" style="display:none">
       <h2>Load/Save</h2>
-      <p>Content for Load/Save.</p>
+      <button id="loadJsonButton" onclick="openLoadPopup()">Load from JSON</button>
+      <button id="saveJsonButton" onclick="saveToJson(GameData)">Save to JSON</button>
+      <div id="load-popup" class="popup" style="display:none">
+        <div class="popup-content">
+          <span class="close" onclick="closeLoadPopup()">&times;</span>
+          <input type="file" id="load-json-input" class="file-input" accept=".json">
+          <div class="feedback-bar" id="choose-file-feedback-bar">
+            <p id="file-feedback-message">No file chosen</p>
+          </div>
+          <button id="load-json-button" class="file-input-button">Choose file</button>
+          <button onclick="loadGame()">Load Selected Game</button>
+          <div class="feedback-bar" id="load-feedback-bar" style="display:none">
+            <p id="load-feedback-message"></p>
+          </div>
+        </div>
+      </div>
+      <div id="load-success-popup" class="popup" style="display:none">
+        <div class="popup-content">
+          <span class="close" onclick="closeLoadSuccessPopup()">&times;</span>
+          <p>Your game has been successfully loaded!</p>
+        </div>
+      </div>
     </div>
+
+    <!-- Location Subpages -->
     <div id="location-arithmetics" class="subpage" style="display:none">
       <h2>Arithmetics</h2>
       <p>Welcome to Arithmetics. Here you can learn and practice arithmetic skills.</p>
@@ -152,14 +183,20 @@
         </ul>
       </div>
     </div>
+
+    <!-- Geometry Subpage -->
     <div id="geometry" class="subpage" style="display:none">
       <h2>Geometry</h2>
       <p>Welcome to Geometry. Here you can learn and practice geometry skills.</p>
     </div>
+
+    <!-- Algebra Subpage -->
     <div id="algebra" class="subpage" style="display:none">
       <h2>Algebra</h2>
       <p>Welcome to Algebra. Here you can learn and practice algebra skills.</p>
     </div>
+
+  <!-- Script Section -->
   <script src="script.js"></script>
 </body>
 </html>
